@@ -58,4 +58,14 @@ public class Vector3D {
 		
 		return product;
 	}
+	
+	public double magnitude() {
+		return Math.sqrt( Math.pow(getX(),2) + Math.pow(getY(),2) + Math.pow(getZ(),2) );
+	}
+	
+	public void makeUnitVector() {
+		setX( getX()/magnitude() );
+		setY( getY()/magnitude() );
+		setZ( getZ()/magnitude() );
+	}
 }
