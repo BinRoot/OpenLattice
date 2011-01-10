@@ -40,6 +40,12 @@ public class Vector3D {
 		this.z = z;
 	}
 	
+	public void setVector(Vector3D b) {
+		x = b.getX();
+		y = b.getY();
+		z = b.getZ();
+	}
+	
 	//--end of getters and setters
 	
 	public String toString() {
@@ -60,12 +66,22 @@ public class Vector3D {
 	}
 	
 	public double magnitude() {
-		return Math.sqrt( Math.pow(getX(),2) + Math.pow(getY(),2) + Math.pow(getZ(),2) );
+		return Math.sqrt( Math.pow(x,2) + Math.pow(y,2) + Math.pow(z,2) );
 	}
 	
 	public void makeUnitVector() {
-		setX( getX()/magnitude() );
-		setY( getY()/magnitude() );
-		setZ( getZ()/magnitude() );
+		divide(magnitude());
+	}
+	
+	public void divide(double d) {
+		x = x/d;
+		y = y/d;
+		z = z/d;
+	}
+	
+	public void add(Vector3D b) {
+		x = x+b.getX();
+		y = y+b.getY();
+		z = z+b.getZ();
 	}
 }
