@@ -17,13 +17,13 @@ public class Camera {
 		tangent = new Vector3D(1, 0, 0); //looking through x-axis
 		binormal = new Vector3D(0, 0, 1); //oriented up as z-axis
 		normal = binormal.cross(tangent);
-		System.out.println("the normal vector is "+normal.getX()+" "+normal.getY()+" "+normal.getZ());
+		System.out.println("the normal vector is "+normal.toString());
 	}
 	
 	//--end of constructors.
 	
 	public String toString() {
-		return position.getX()+"  "+position.getY()+"  "+position.getZ();
+		return position.toString();
 	}
 	
 	public void panLeft() {
@@ -60,6 +60,32 @@ public class Camera {
 		position.setX( position.getX() - tangent.getX() );
 		position.setY( position.getY() - tangent.getY() );
 		position.setZ( position.getZ() - tangent.getZ() );
+	}
+	
+	//To do:
+	
+	public void yawLeft() {
+		
+	}
+	
+	public void yawRight() {
+		
+	}
+	
+	public void pitchLeft() {
+		
+	}
+	
+	public void pitchRight() {
+		
+	}
+	
+	public void rollLeft() {
+		
+	}
+	
+	public void rollRight() {
+		
 	}
 	
 }

@@ -7,7 +7,7 @@ public class Driver {
 		boolean go = true;
 		while(go) {
 			System.out.println("current position: "+c.toString());
-			System.out.println("enter [w][a][s][d] to pan.");
+			System.out.println("enter [w][a][s][d][8][2] to move.");
 			String ans = kb.nextLine();
 			if(ans.equals("q")) {
 				go=false;

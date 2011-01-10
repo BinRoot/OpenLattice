@@ -42,6 +42,11 @@ public class Vector3D {
 	
 	//--end of getters and setters
 	
+	public String toString() {
+		String coor = "\t"+getX() + "\t" + getY() + "\t" + getZ();
+		return coor;
+	}
+	
 	public Vector3D cross(Vector3D b) {
 		Vector3D product = new Vector3D();
 		
