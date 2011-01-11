@@ -1,3 +1,5 @@
+import java.awt.Dimension;
+
 
 public class Camera {
 
@@ -5,6 +7,9 @@ public class Camera {
 	Vector3D tangent; //camera movement in and out
 	Vector3D normal; //camera movement side to side
 	Vector3D binormal; //camera orientation up
+	
+	int width = 640;
+	int height = 480;
 	
 	public Camera() {
 		this(0,0,0);
@@ -20,6 +25,16 @@ public class Camera {
 	}
 	
 	//--end of constructors.
+	
+	public void setDimension(int width, int height) {
+		this.width = width;
+		this.height = height;
+	}
+	
+	public Dimension getDimension() {
+		Dimension d = new Dimension(width, height);
+		return d;
+	}
 	
 	public String toString() {
 		String info = "position: "+position.toString() + "\n" +

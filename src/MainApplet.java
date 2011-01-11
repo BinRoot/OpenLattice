@@ -17,8 +17,8 @@ public class MainApplet extends Applet implements KeyListener, Runnable {
 	public void init() {
 		ExecutorService exec = Executors.newCachedThreadPool();
 		exec.execute(this);
-		
-		setSize(640, 480);
+
+		setSize(c.getDimension());
 		addKeyListener(this);
 		
 		e.addLineSeg(new LineSeg(0,0,0, 100,200,10));
