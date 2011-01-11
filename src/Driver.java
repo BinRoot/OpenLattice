@@ -4,6 +4,7 @@ public class Driver {
 		
 		Camera c = new Camera(2,2,2);
 		Scanner kb = new Scanner(System.in);
+		
 		boolean go = true;
 		while(go) {
 			System.out.println(c.toString());
