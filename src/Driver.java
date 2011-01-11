@@ -6,9 +6,8 @@ public class Driver {
 		Scanner kb = new Scanner(System.in);
 		boolean go = true;
 		while(go) {
-			System.out.println("current position: "+c.positionStr());
-			System.out.println("pointing in direction: "+c.tangentStr());
-			System.out.println("enter [w][a][s][d] [8][2] [i][j][k][l] to move.");
+			System.out.println(c.toString());
+			System.out.println("enter [w][a][s][d] [8][2] [i][j][k][l] [u][o] to move.");
 			String ans = kb.nextLine();
 			if(ans.equals("q")) {
 				go=false;
@@ -42,6 +41,12 @@ public class Driver {
 			}
 			else if(ans.equals("l")) {
 				c.yawRight();
+			}
+			else if(ans.equals("u")) {
+				c.rollLeft();
+			}
+			else if(ans.equals("o")) {
+				c.rollRight();
 			}
 			else{
 				System.out.println("Command not recognized.");

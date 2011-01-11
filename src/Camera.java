@@ -17,13 +17,16 @@ public class Camera {
 		tangent = new Vector3D(1, 0, 0); //looking through x-axis
 		binormal = new Vector3D(0, 0, 1); //oriented up as z-axis
 		normal = binormal.cross(tangent); //(0,1,0)
-		System.out.println("the normal vector is "+normal.toString());
 	}
 	
 	//--end of constructors.
 	
 	public String toString() {
-		String info = "position: "+position.toString() + "\ndirection: "+tangent.toString();
+		String info = "position: "+position.toString() + "\n" +
+				"tangent: "+tangent.toString() + "\n" +
+				"binormal: "+binormal.toString() + "\n" +
+				"normal: "+normal.toString() + "\n"; 
+			
 		return info;
 	}
 	public String positionStr() {
@@ -119,11 +122,25 @@ public class Camera {
 	}
 	
 	public void rollLeft() {
-		
+		Vector3D BN = new Vector3D(	normal.getX()-binormal.getX(),
+									normal.getY()-binormal.getY(),
+									normal.getZ()-binormal.getZ());
+		BN.divide(10);
+
+		binormal.add(BN);
+		binormal.makeUnitVector();
+		normal.setVector( binormal.cross(tangent) );
 	}
 	
 	public void rollRight() {
-		
+		Vector3D BN = new Vector3D(	(-1*normal.getX())-binormal.getX(),
+									(-1*normal.getY())-binormal.getY(),
+									(-1*normal.getZ())-binormal.getZ());
+		BN.divide(10);
+
+		binormal.add(BN);
+		binormal.makeUnitVector();
+		normal.setVector( binormal.cross(tangent) );
 	}
 	
 }
