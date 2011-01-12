@@ -57,18 +57,30 @@ public class Engine {
 		double px1 = ls.x1 - t1*c.tangent.getX();
 		double py1 = ls.y1 - t1*c.tangent.getY();
 		double pz1 = ls.z1 - t1*c.tangent.getZ();
+		System.out.println("real projected point A: "+px1+", "+py1+", "+pz1);
 		
 		double t2 = c.tangent.dot(new Vector3D(ls.x2,ls.y2,ls.z2)) - c.tangent.dot(c.position);
 		//projection of point B
 		double px2 = ls.x2 - t2*c.tangent.getX();
 		double py2 = ls.y2 - t2*c.tangent.getY();
 		double pz2 = ls.z2 - t2*c.tangent.getZ();
+		System.out.println("real projected point B: "+px2+", "+py2+", "+pz2);
 		
 		//disposition solution of A
-		double [][] arr1 = {
-				{c.normal.getY(),c.binormal.getY()},
-				{c.normal.getZ(),c.binormal.getZ()}
-			};
+		double [][] arr1 = new double[2][2];
+		if(c.normal.getX()==0 && c.binormal.getX()==0) {
+			arr1[0][0]=c.normal.getY();	arr1[0][1]=c.binormal.getY();
+			arr1[1][0]=c.normal.getZ(); arr1[1][1]=c.binormal.getZ();
+		}
+		else if(c.normal.getY()==0 && c.binormal.getY()==0) {
+			arr1[0][0]=c.normal.getX();	arr1[0][1]=c.binormal.getX();
+			arr1[1][0]=c.normal.getZ(); arr1[1][1]=c.binormal.getZ();
+		}
+		else if(c.normal.getZ()==0 && c.binormal.getZ()==0) {
+			arr1[0][0]=c.normal.getX();	arr1[0][1]=c.binormal.getX();
+			arr1[1][0]=c.normal.getY(); arr1[1][1]=c.binormal.getY();
+		}
+		
 		double [][] ans1 = {
 				{ls.x1-c.position.getY()},
 				{ls.y1-c.position.getZ()}
@@ -90,7 +102,6 @@ public class Engine {
 		
 
 		
-		//System.out.println("solution of lambda and mu: "+mSol1.toString());
 
 		Shape line = new Line2D.Double(0, 0, 0, 0);
 		return line;
