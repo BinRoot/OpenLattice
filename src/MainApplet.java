@@ -12,7 +12,7 @@ public class MainApplet extends Applet implements KeyListener, Runnable {
 	
 	boolean wKey, aKey, sKey, dKey = false;
 	Camera c = new Camera(2,2,2);
-	Engine e = new Engine();
+	Engine e = new Engine(c);
 	
 	public void init() {
 		ExecutorService exec = Executors.newCachedThreadPool();
@@ -21,7 +21,7 @@ public class MainApplet extends Applet implements KeyListener, Runnable {
 		setSize(c.getDimension());
 		addKeyListener(this);
 		
-		e.addLineSeg(new LineSeg(0,0,0, 100,200,10));
+		e.addLineSeg(new LineSeg(0,0,0, 4,5,-1));
 	}
 	
 	public void paint(Graphics g) {
@@ -81,11 +81,11 @@ public class MainApplet extends Applet implements KeyListener, Runnable {
 				}
 				if(aKey) {
 					System.out.println("a");
-					c.moveOut();
+					c.panLeft();
 				}
 				if(sKey) {
 					System.out.println("s");
-					c.panLeft();
+					c.moveOut();
 				}
 				if(dKey) {
 					System.out.println("d");

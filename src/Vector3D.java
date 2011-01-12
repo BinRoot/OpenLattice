@@ -65,6 +65,13 @@ public class Vector3D {
 		return product;
 	}
 	
+	public double dot(Vector3D b) {
+		double product = 0;
+		Vector3D a = this;
+		product = a.getX()*b.getX() + a.getY()*b.getY() + a.getZ()*b.getZ();
+		return product;
+	}
+	
 	public double magnitude() {
 		return Math.sqrt( Math.pow(x,2) + Math.pow(y,2) + Math.pow(z,2) );
 	}
