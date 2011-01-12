@@ -43,12 +43,16 @@ public class Engine {
 		}
 	}
 	
+	//Algorithm for vector projection and matrix manipulation goes here:
 	public Shape getShapeOfLineSeg( LineSeg ls ) {
-		//Must change this:
 		int x1 = ls.x1;
 		int y1 = ls.y1;
+		int z1 = ls.z1;
 		int x2 = ls.x2;
 		int y2 = ls.y2;
+		int z2 = ls.z2;
+		
+		
 
 		Shape line = new Line2D.Double(x1, y1, x2, y2);
 		return line;
