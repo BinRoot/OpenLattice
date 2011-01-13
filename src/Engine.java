@@ -158,6 +158,13 @@ public class Engine {
 		camX2 = (int) solArr2[0][0];
 		camY2 = (int) solArr2[1][0];
 		
+		double camPosX = c.getDimension().getWidth()/2;
+		double camPosY = c.getDimension().getHeight()/2;
+		
+		camX1 = (int) (camPosX+camX1);
+		camY1 = (int) (camPosY+camY1);
+		camX2 = (int) (camPosX+camX2);
+		camY2 = (int) (camPosY+camY2);
 		
 		Shape line = new Line2D.Double(camX1, camY1, camX2, camY2);
 		return line;

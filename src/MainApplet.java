@@ -10,7 +10,9 @@ import java.util.concurrent.Executors;
 
 public class MainApplet extends Applet implements KeyListener, Runnable {
 	
-	boolean wKey, aKey, sKey, dKey = false;
+	boolean wKey, aKey, sKey, dKey, spaceKey, cKey,
+		iKey, jKey, kKey, lKey, qKey, eKey = false;
+	
 	Camera c = new Camera(2,2,2);
 	Engine e = new Engine(c);
 	
@@ -21,7 +23,13 @@ public class MainApplet extends Applet implements KeyListener, Runnable {
 		setSize(c.getDimension());
 		addKeyListener(this);
 		
-		e.addLineSeg(new LineSeg(5,10,3, 100,200,200)); //4,5,-1
+		e.addLineSeg(new LineSeg(200,0,0, 200,200,0));
+		e.addLineSeg(new LineSeg(200,200,0, 200,200,300));
+		e.addLineSeg(new LineSeg(200,200,300, 200,0,0));
+		
+		e.addLineSeg(new LineSeg(-200,0,0, 200,0,0)); 
+		e.addLineSeg(new LineSeg(0,-200,0, 0,200,0)); 
+		e.addLineSeg(new LineSeg(0,0,-200, 0,0,200)); 
 	}
 	
 	public void paint(Graphics g) {
@@ -34,7 +42,7 @@ public class MainApplet extends Applet implements KeyListener, Runnable {
 	
 	
 	public void keyPressed(KeyEvent e) {
-		//System.out.println(e.getKeyCode());
+		System.out.println(e.getKeyCode());
 		if(e.getKeyCode()==87) { //w
 			wKey=true;
 		}
@@ -46,6 +54,30 @@ public class MainApplet extends Applet implements KeyListener, Runnable {
 		}
 		if(e.getKeyCode()==68) { //d
 			dKey=true;
+		}
+		if(e.getKeyCode()==32) { //[SPACE]
+			spaceKey=true;
+		}
+		if(e.getKeyCode()==67) { //c
+			cKey=true;
+		}
+		if(e.getKeyCode()==73) { //i
+			iKey=true;
+		}
+		if(e.getKeyCode()==74) { //j
+			jKey=true;
+		}
+		if(e.getKeyCode()==75) { //k
+			kKey=true;
+		}
+		if(e.getKeyCode()==76) { //l
+			lKey=true;
+		}
+		if(e.getKeyCode()==81) { //q
+			qKey=true;
+		}
+		if(e.getKeyCode()==69) { //e
+			eKey=true;
 		}
 		
 		repaint();
@@ -64,6 +96,32 @@ public class MainApplet extends Applet implements KeyListener, Runnable {
 		if(e.getKeyCode()==68) { //d
 			dKey=false;
 		}
+		if(e.getKeyCode()==32) { //[SPACE]
+			spaceKey=false;
+		}
+		if(e.getKeyCode()==67) { //c
+			cKey=false;
+		}
+		if(e.getKeyCode()==73) { //i
+			iKey=false;
+		}
+		if(e.getKeyCode()==74) { //j
+			jKey=false;
+		}
+		if(e.getKeyCode()==75) { //k
+			kKey=false;
+		}
+		if(e.getKeyCode()==76) { //l
+			lKey=false;
+		}
+		if(e.getKeyCode()==81) { //q
+			qKey=false;
+		}
+		if(e.getKeyCode()==69) { //e
+			eKey=false;
+		}
+		
+		
 		repaint();
 	}
 
@@ -90,6 +148,32 @@ public class MainApplet extends Applet implements KeyListener, Runnable {
 				if(dKey) {
 					System.out.println("d");
 					c.panRight();
+				}
+				if(spaceKey) {
+					System.out.println("SPACE");
+					c.panUp();
+				}
+				if(cKey) { 
+					System.out.println("c");
+					c.panDown();
+				}
+				if(iKey) { 
+					c.pitchUp();
+				}
+				if(jKey) { 
+					c.yawLeft();
+				}
+				if(kKey) { 
+					c.panDown();
+				}
+				if(lKey) { 
+					c.yawRight();
+				}
+				if(qKey) { 
+					c.rollLeft();
+				}
+				if(eKey) { 
+					c.rollRight();
 				}
 				
 				Thread.sleep(100);
