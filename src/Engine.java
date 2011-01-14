@@ -3,14 +3,11 @@ import java.awt.Shape;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
-import Jampack.JampackException;
-import Jampack.*;
-
-
 public class Engine {
 
 	private static ArrayList<LineSeg> lineSegs;
 	Camera c = null;
+	
 	
 	public Engine(Camera c) {
 		lineSegs = new ArrayList<LineSeg>();
@@ -93,21 +90,15 @@ public class Engine {
 			ans1[0][0]=ls.x1-c.position.getX();
 			ans1[1][0]=ls.y1-c.position.getY();
 		}
+
+		Matrix m1 = new Matrix( arr1, 2,2 );
+		Matrix mAns1 = new Matrix( ans1, 2,1 );
+		Matrix mSol1 = null;
 		
+		mSol1 = m1.inverse().multiply(mAns1);
+		mSol1.print();
 		
-		
-		Zmat m1 = new Zmat( arr1 );
-		Zmat mAns1 = new Zmat( ans1 );
-		Zmat mSol1 = null;
-		
-		try {
-			mSol1 = Solve.aib(m1, mAns1);
-		} catch (JampackException e) {
-			System.out.println("Jampack didn't work");
-			e.printStackTrace();
-		}
-		
-		double solArr1[][] = mSol1.getRe();
+		double solArr1[][] = mSol1.getMat();
 		System.out.println("lambda = "+solArr1[0][0]);
 		System.out.println("mu = "+solArr1[1][0]);
 		camX1 = (int) solArr1[0][0];
@@ -141,18 +132,15 @@ public class Engine {
 		
 		
 		
-		Zmat m2 = new Zmat( arr2 );
-		Zmat mAns2 = new Zmat( ans2 );
-		Zmat mSol2 = null;
+		Matrix m2 = new Matrix( arr2, 2,2 );
+		Matrix mAns2 = new Matrix( ans2, 2,1 );
+		Matrix mSol2 = null;
 		
-		try {
-			mSol2 = Solve.aib(m2, mAns2);
-		} catch (JampackException e) {
-			System.out.println("Jampack didn't work");
-			e.printStackTrace();
-		}
 		
-		double solArr2[][] = mSol2.getRe();
+		mSol2 = m2.inverse().multiply(mAns2);
+		
+		
+		double solArr2[][] = mSol2.getMat();
 		System.out.println("lambda2 = "+solArr2[0][0]);
 		System.out.println("mu2 = "+solArr2[1][0]);
 		camX2 = (int) solArr2[0][0];

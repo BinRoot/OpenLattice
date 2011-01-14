@@ -5,6 +5,18 @@ public class Driver {
 		Camera c = new Camera(2,2,2);
 		Scanner kb = new Scanner(System.in);
 		
+		double mat1[][] = { 
+				{2,0}, 
+				{3,1}};
+		Matrix m1 = new Matrix(mat1, 2, 2);
+
+		double mat2[][] = { 
+				{3}, 
+				{1}};
+		Matrix m2 = new Matrix(mat2, 2, 1);
+		
+		m1.multiply(m2).print();
+		
 		boolean go = true;
 		while(go) {
 			System.out.println(c.toString());
