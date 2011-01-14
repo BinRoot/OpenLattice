@@ -26,6 +26,9 @@ public class MainApplet extends Applet implements KeyListener, Runnable {
 		e.addLineSeg(new LineSeg(200,0,0, 200,200,0));
 		e.addLineSeg(new LineSeg(200,200,0, 200,200,300));
 		e.addLineSeg(new LineSeg(200,200,300, 200,0,0));
+		e.addLineSeg(new LineSeg(200,0,0, 400,200,0));
+		e.addLineSeg(new LineSeg(400,200,0, 200,200,0));
+		e.addLineSeg(new LineSeg(400,200,0, 200,200,300));
 		
 		e.addLineSeg(new LineSeg(-200,0,0, 200,0,0)); 
 		e.addLineSeg(new LineSeg(0,-200,0, 0,200,0)); 
@@ -35,14 +38,21 @@ public class MainApplet extends Applet implements KeyListener, Runnable {
 	public void paint(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		for(LineSeg ls : e.getLineSegs()) {
-			g2.draw(e.getShape(ls));
+			//g2.draw(e.getShape(ls));
 		}
+		g2.drawString("P "+ c.getPositionStr(), 10, 20);
+		g2.drawString("T "+ c.getTangentStr(), 10, 40);
+		g2.drawString("B "+ c.getBinormalStr(), 10, 60);
+		g2.drawString("N "+ c.getNormalStr(), 10, 80);
 	}
 
 	
 	
+	
+	//Key events:
+	
 	public void keyPressed(KeyEvent e) {
-		System.out.println(e.getKeyCode());
+		//System.out.println(e.getKeyCode());
 		if(e.getKeyCode()==87) { //w
 			wKey=true;
 		}
@@ -79,8 +89,6 @@ public class MainApplet extends Applet implements KeyListener, Runnable {
 		if(e.getKeyCode()==69) { //e
 			eKey=true;
 		}
-		
-		repaint();
 	}
 
 	public void keyReleased(KeyEvent e) {
@@ -120,9 +128,6 @@ public class MainApplet extends Applet implements KeyListener, Runnable {
 		if(e.getKeyCode()==69) { //e
 			eKey=false;
 		}
-		
-		
-		repaint();
 	}
 
 	public void keyTyped(KeyEvent e) {
@@ -134,46 +139,58 @@ public class MainApplet extends Applet implements KeyListener, Runnable {
 		while(true) {
 			try {
 				if(wKey) {
-					System.out.println("w");
+					//System.out.println("w");
 					c.moveIn();
+					repaint();
 				}
 				if(aKey) {
-					System.out.println("a");
+					//System.out.println("a");
 					c.panLeft();
+					repaint();
 				}
 				if(sKey) {
-					System.out.println("s");
+					//System.out.println("s");
 					c.moveOut();
+					repaint();
 				}
 				if(dKey) {
-					System.out.println("d");
+					//System.out.println("d");
 					c.panRight();
+					repaint();
 				}
 				if(spaceKey) {
-					System.out.println("SPACE");
+					//System.out.println("SPACE");
 					c.panUp();
+					repaint();
 				}
 				if(cKey) { 
-					System.out.println("c");
+					//System.out.println("c");
 					c.panDown();
+					repaint();
 				}
 				if(iKey) { 
 					c.pitchUp();
+					repaint();
 				}
 				if(jKey) { 
 					c.yawLeft();
+					repaint();
 				}
 				if(kKey) { 
-					c.panDown();
+					c.pitchDown();
+					repaint();
 				}
 				if(lKey) { 
 					c.yawRight();
+					repaint();
 				}
 				if(qKey) { 
 					c.rollLeft();
+					repaint();
 				}
 				if(eKey) { 
 					c.rollRight();
+					repaint();
 				}
 				
 				Thread.sleep(100);

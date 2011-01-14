@@ -49,7 +49,7 @@ public class Vector3D {
 	//--end of getters and setters
 	
 	public String toString() {
-		String coor = "\t"+getX() + "\t" + getY() + "\t" + getZ();
+		String coor = "\t("+getX() + ",   " + getY() + ",   " + getZ()+")";
 		return coor;
 	}
 	

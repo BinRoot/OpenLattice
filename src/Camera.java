@@ -44,11 +44,17 @@ public class Camera {
 			
 		return info;
 	}
-	public String positionStr() {
+	public String getPositionStr() {
 		return position.toString();
 	}
-	public String tangentStr() {
+	public String getTangentStr() {
 		return tangent.toString();
+	}
+	public String getBinormalStr() {
+		return binormal.toString();
+	}
+	public String getNormalStr() {
+		return normal.toString();
 	}
 	
 	
@@ -89,9 +95,10 @@ public class Camera {
 	}
 	
 	public void yawLeft() {
+
 		Vector3D TN = new Vector3D(	normal.getX()-tangent.getX(),
-									normal.getY()-tangent.getY(),
-									normal.getZ()-tangent.getZ());
+				normal.getY()-tangent.getY(),
+				normal.getZ()-tangent.getZ());
 		TN.divide(10);
 		
 		tangent.add(TN);
