@@ -38,7 +38,7 @@ public class MainApplet extends Applet implements KeyListener, Runnable {
 	public void paint(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		for(LineSeg ls : e.getLineSegs()) {
-			//g2.draw(e.getShape(ls));
+			g2.draw(e.getShape(ls));
 		}
 		g2.drawString("P "+ c.getPositionStr(), 10, 20);
 		g2.drawString("T "+ c.getTangentStr(), 10, 40);
