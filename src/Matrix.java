@@ -67,7 +67,11 @@ public class Matrix {
 			double b = getVal(0, 1);
 			double c = getVal(1, 0);
 			double d = getVal(1, 1);
+			System.out.println("det: "+(a*d - c*b));
 			return (a*d - c*b);
+		}
+		else {
+			System.out.println("ERR, not a 2x2 matrix");
 		}
 		return det;
 	}

@@ -22,7 +22,7 @@ public class MainApplet extends Applet implements KeyListener, Runnable {
 
 		setSize(c.getDimension());
 		addKeyListener(this);
-		
+		/*
 		e.addLineSeg(new LineSeg(200,0,0, 200,200,0));
 		e.addLineSeg(new LineSeg(200,200,0, 200,200,300));
 		e.addLineSeg(new LineSeg(200,200,300, 200,0,0));
@@ -32,7 +32,13 @@ public class MainApplet extends Applet implements KeyListener, Runnable {
 		
 		e.addLineSeg(new LineSeg(-200,0,0, 200,0,0)); 
 		e.addLineSeg(new LineSeg(0,-200,0, 0,200,0)); 
-		e.addLineSeg(new LineSeg(0,0,-200, 0,0,200)); 
+		e.addLineSeg(new LineSeg(0,0,-200, 0,0,200)); */
+		
+		e.addLineSeg(new LineSeg(100,0,0, 100,300,0));
+		e.addLineSeg(new LineSeg(100,300,0, 100,300,200));
+		e.addLineSeg(new LineSeg(100,300,200, 100,0,200));
+		e.addLineSeg(new LineSeg(100,0,200, 100,0,0));
+		
 	}
 	
 	public void paint(Graphics g) {

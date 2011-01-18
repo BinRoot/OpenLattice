@@ -83,7 +83,7 @@ public class Engine {
 			ans1[0][0]=ls.x1-c.position.getX();
 			ans1[1][0]=ls.z1-c.position.getZ();
 		}
-		else if(c.normal.getZ()==0 && c.binormal.getZ()==0) {
+		else {
 			arr1[0][0]=c.normal.getX();	arr1[0][1]=c.binormal.getX();
 			arr1[1][0]=c.normal.getY(); arr1[1][1]=c.binormal.getY();
 			
@@ -122,7 +122,7 @@ public class Engine {
 			ans1[0][0]=ls.x2-c.position.getX();
 			ans1[1][0]=ls.z2-c.position.getZ();
 		}
-		else if(c.normal.getZ()==0 && c.binormal.getZ()==0) {
+		else {
 			arr2[0][0]=c.normal.getX();	arr2[0][1]=c.binormal.getX();
 			arr2[1][0]=c.normal.getY(); arr2[1][1]=c.binormal.getY();
 			
